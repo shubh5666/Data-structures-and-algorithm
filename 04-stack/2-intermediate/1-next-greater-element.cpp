@@ -42,36 +42,3 @@ int main(){
 
 
 
-#include<bits/stdc++.h>
-using namespace std;
-int main(){
-  
-  vector<int>arr = {3,6,8,10,3,14,8,2};
-  stack<int>st;
-  vector<int>ans;
-
-  for(int i = arr.size()-1;i>=0;i--){
-    if(st.size()== 0){
-      ans.push_back(-1);
-    }
-    else if(st.size()>0 && st.top() > arr[i]){
-      ans.push_back(st.top());
-    }
-    else if(st.size()>0 && st.top()<=arr[i]){
-      while(st.size()>0 && st.top() <=arr[i]){
-        st.pop();
-      }
-      if(st.size()==0){
-        ans.push_back(-1);
-      }
-      else if(st.size()>0 && st.top()>arr[i]){
-        ans.push_back(st.top());
-      }
-    }
-    st.push(arr[i]);
-  }
-  for(int i=ans.size()-1;i>=0;i--){
-    cout<<ans[i]<<"  ";
-  }
-  cout<<endl;
-}

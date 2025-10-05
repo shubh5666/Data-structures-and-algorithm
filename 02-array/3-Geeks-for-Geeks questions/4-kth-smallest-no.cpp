@@ -1,0 +1,20 @@
+// submission link:- https://www.geeksforgeeks.org/problems/kth-smallest-element5635/1?page=1&category=Arrays&sortBy=submissions
+
+// User function template for C++
+
+class Solution {
+  public:
+    // arr : given array
+    // k : find kth smallest element and return using this function
+    int kthSmallest(vector<int> &arr, int k) {
+        // code here
+        sort(arr.begin(),arr.end());
+        
+        for(int i =0;i<arr.size();i++){
+                return arr[k-1];
+            }
+            
+        
+        
+    }
+};

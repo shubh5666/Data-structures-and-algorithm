@@ -2,10 +2,12 @@
 
 
 ## Content 
-1. Array
-2. Binary Search
-3. Linked List
-4. Stack
-5. Dynamic Programming
-6. Bit Manipulation
-7. Tree
+1. Basic-fundamentals
+2. Array
+3. Binary Search
+4. Linkedlist
+5. Two-pointer
+6. Dynamic Programming
+7. Bit Manipulation 
+9. Stack
+10. Tree

@@ -10,7 +10,6 @@ int knapsack(int wt[],int val[],int W,int n){
     }
     else{
         return knapsack(wt,val,W,n-1);
-        
     }
 }
 

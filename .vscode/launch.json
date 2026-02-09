@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/shubh/OneDrive/Desktop/Striver/Data-structures-and-algorithm/05-Two-pointer",
-      "program": "c:/Users/shubh/OneDrive/Desktop/Striver/Data-structures-and-algorithm/05-Two-pointer/build/Debug/outDebug",
+      "cwd": "c:/Users/shubh/OneDrive/Desktop/Striver/Data-structures-and-algorithm/06-Dynamic-programming/1st-knapsack",
+      "program": "c:/Users/shubh/OneDrive/Desktop/Striver/Data-structures-and-algorithm/06-Dynamic-programming/1st-knapsack/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

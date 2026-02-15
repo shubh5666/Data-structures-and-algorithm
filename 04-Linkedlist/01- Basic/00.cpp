@@ -107,13 +107,64 @@ public:
         // prev is pointing to node at position-1
 
         Node* curr = prev->next;
-
         prev->next = curr->next;
-
         delete (curr);
 
-
       }
+
+
+
+      //Updation on kth
+       void updateValue(Node* &head,int k , int updatedvalue){
+
+          Node* temp = head;
+          int count = 1;
+          while(count<k){
+            temp=temp->next;
+            count++;
+          }
+           
+          temp->value = updatedvalue;
+
+       }
+
+
+
+       // DeleteAt every Alternative
+
+       void deleteAlternate(Node* &head){
+        if(head==NULL){
+          return;
+        }
+
+        Node* temp = head;
+        while(temp!=NULL && temp->next!=NULL){
+        Node* deleteNode = temp->next;
+        temp->next = temp->next->next;
+         temp = temp->next;
+         delete deleteNode;
+        }
+     
+       }
+  
+
+
+       // Middle Element
+       int middleElement(Node* &head){
+        Node* slow = head;
+        Node* fast = head;
+
+        while(fast!=NULL && fast->next!=NULL){
+           slow = slow->next;
+           fast = fast->next->next;
+        }
+        //slow at middle element
+        return slow->value;
+       }
+
+
+
+      
 
     
 
@@ -153,6 +204,26 @@ int main(){
 
  deleteAtK(head , 2);
  traverse(head);
+
+updateValue(head,1,50);
+traverse(head);
+
+  insertAtHead(head,10);
+ traverse(head);
+
+ insertAtEnd(head,100);
+ traverse(head);
+
+ insertAtK(head,30,2);
+ traverse(head);
+
+
+ deleteAlternate(head);
+ traverse(head);
+
+ cout<<middleElement(head);
+ 
+
 
 
 }

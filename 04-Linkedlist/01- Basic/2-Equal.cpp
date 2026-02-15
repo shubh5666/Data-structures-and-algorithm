@@ -1,0 +1,148 @@
+// two linkedlist equal or not
+#include<bits/stdc++.h>
+using namespace std;
+
+class Node{
+public:
+  int value;
+  Node*  next;
+
+  Node(int v){
+    value = v;
+    next = NULL;
+  }
+
+};
+
+// Insert At head
+  void insertAtHead(Node* &head , int val){
+    Node* newNode = new Node(val);
+    newNode->next = head;
+    head = newNode;
+  }
+
+
+  // Insert At end
+    void insertAtEnd(Node* &head , int val){
+      if(head == NULL){
+        insertAtHead(head,val);
+        return;
+      }
+      Node* newNode = new Node(val);
+      Node* temp = head;
+      while(temp->next!=NULL){
+        temp=temp->next;
+      }
+      temp->next = newNode;
+
+
+
+    }
+  
+    // Insert at kth position
+      void insertAtK(Node* &head,int val,int position){
+        if(position == 1){
+          insertAtHead(head,val);
+        }
+        Node*  newNode = new Node(val);
+        Node*  prev = head;
+        int count = 1;
+        while(count<(position-1)){
+          prev = prev->next;
+          count++;
+        }
+
+        newNode->next = prev->next;
+        prev->next = newNode;
+
+      }
+
+
+       // Middle Element
+       int middleElement(Node* &head){
+        Node* slow = head;
+        Node* fast = head;
+
+        while(fast!=NULL && fast->next!=NULL){
+           slow = slow->next;
+           fast = fast->next->next;
+        }
+        //slow at middle element
+        return slow->value;
+       }
+
+   
+       // Equal or not
+
+       bool checkEqual(Node* head1 , Node* head2){
+        while(head1 && head2){
+            if(head1->value!= head2->value){
+                return false;
+            }
+            head1 = head1->next;
+            head2 = head2->next;
+        }
+
+        return (head1==NULL && head2==NULL);
+
+       }
+ 
+      
+
+    
+
+
+  void traverse(Node* head){
+    Node*  temp = head;
+    while(temp!=NULL){
+      cout<<temp->value<<"->";
+      temp = temp->next;
+    }
+    cout<<"NULL"<<endl;
+    
+  }
+
+int main(){
+
+ Node* node1 = new Node(1);
+ Node*  node2 = new Node(2);
+ node1->next = node2;
+ Node* head1 = node1;
+ traverse(head1);
+
+ insertAtHead(head1,10);
+ traverse(head1);
+
+ insertAtEnd(head1,100);
+ traverse(head1);
+
+ insertAtK(head1,30,2);
+ traverse(head1);
+
+ cout<<middleElement(head1);
+
+cout << endl;
+ Node* head2 = node1;
+ traverse(head2);
+
+ insertAtHead(head2,10);
+ traverse(head2);
+
+ insertAtEnd(head2,100);
+ traverse(head2);
+
+ insertAtK(head2,30,2);
+ traverse(head2);
+
+ cout<<middleElement(head2)<<endl;
+
+
+cout<<checkEqual(head1,head2)<<endl;
+
+
+
+ 
+
+
+
+}

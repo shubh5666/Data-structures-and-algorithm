@@ -141,8 +141,9 @@ public:
         while(temp!=NULL && temp->next!=NULL){
         Node* deleteNode = temp->next;
         temp->next = temp->next->next;
+        delete deleteNode;
          temp = temp->next;
-         delete deleteNode;
+         
         }
      
        }
@@ -162,7 +163,8 @@ public:
         return slow->value;
        }
 
-
+   
+       // 
 
       
 

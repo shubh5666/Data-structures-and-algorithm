@@ -14,6 +14,9 @@ public:
 
 };
 
+
+
+
 // Insert At head
   void insertAtHead(Node* &head , int val){
     Node* newNode = new Node(val);
@@ -22,7 +25,8 @@ public:
   }
 
 
-  // Insert At end
+
+ // Insert At end
     void insertAtEnd(Node* &head , int val){
       if(head == NULL){
         insertAtHead(head,val);
@@ -38,8 +42,10 @@ public:
 
 
     }
-  
-    // Insert at kth position
+
+
+
+// Insert at kth position
       void insertAtK(Node* &head,int val,int position){
         if(position == 1){
           insertAtHead(head,val);
@@ -58,8 +64,10 @@ public:
       }
 
 
-       // Middle Element
-       int middleElement(Node* &head){
+
+
+//   Middle Element
+ int middleElement(Node* &head){
         Node* slow = head;
         Node* fast = head;
 
@@ -72,9 +80,8 @@ public:
        }
 
    
-       // Equal or not
-
-       bool checkEqual(Node* head1 , Node* head2){
+//   Equal or not
+bool checkEqual(Node* head1 , Node* head2){
         while(head1 && head2){
             if(head1->value!= head2->value){
                 return false;
@@ -87,8 +94,44 @@ public:
 
        }
  
-      
 
+// Rotate kth
+
+    void rotateByK(Node* &head, int k){
+      Node* temp = head;
+      int n=1;
+      while(temp->next){
+        n++;
+        temp=temp->next;
+      }
+      //temp is pointing to last node
+      k = k% n;
+
+      if(k==0){
+        return;
+      }
+       // 1. make last node to head;
+         temp->next = head;
+          
+
+         // 2. find (n-k)th node and make next node as new node
+           temp = head;
+         for(int i =0;i<(n-k);i++){
+          temp = temp->next;
+         }
+
+
+         Node* newHead = temp->next; //(n-k+1)th node
+
+         //3. make (n-k)th node point to null
+           temp->next = NULL;
+
+           head = newHead;
+
+    }
+
+      
+// 
     
 
 
@@ -140,7 +183,10 @@ cout << endl;
 cout<<checkEqual(head1,head2)<<endl;
 
 
+  traverse(head1);
 
+rotateByK(head1,3);
+traverse(head1);
  
 
 

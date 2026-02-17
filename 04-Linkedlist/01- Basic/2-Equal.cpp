@@ -130,8 +130,56 @@ bool checkEqual(Node* head1 , Node* head2){
 
     }
 
+     int getLength(Node* head){
+      int n=0;
+      Node* temp = head;
+      while(temp){
+        n++;
+        temp=temp->next;
+      }
+
+      return n;
+
+     }
+   
+     Node* moveKSteps(Node* head,int k){
+      Node* ptr = head;
+      while(k--){
+        ptr= ptr->next;
+      }
+      return ptr;
+     }
+
       
-// 
+// intersection
+   Node* getIntersectionNode(Node* head1,Node* head2){
+     int l1 = getLength(head1);
+     int l2 = getLength(head2);
+     Node* ptr1;
+     Node* ptr2;
+     if(l1>l2){ // first linked list is longer
+      int k = l1-l2;
+      ptr1 = moveKSteps(head1,k);
+      ptr2 = head2;
+
+     }
+     else{
+      int k = l2-l1;
+      ptr1 = head1;
+      ptr2 = moveKSteps(head2,k);
+     }
+     
+        while(ptr1 && ptr2){
+          if(ptr1 == ptr2){
+            return ptr1;
+
+          }
+          ptr1=ptr1->next;
+          ptr2=ptr2->next;
+        }
+
+        return NULL;
+   }
     
 
 
@@ -188,6 +236,17 @@ cout<<checkEqual(head1,head2)<<endl;
 rotateByK(head1,3);
 traverse(head1);
  
+cout<<endl;
+
+head2->next->next = head1->next->next;
+traverse(head2);
+
+Node* intersectionNode = getIntersectionNode(head1,head2);
+  if(intersectionNode){
+    cout<<intersectionNode->value<<endl;
+  }else{
+    cout<<"NO intersection point";
+  }
 
 
 
